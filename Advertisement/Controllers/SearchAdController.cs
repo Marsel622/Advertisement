@@ -19,6 +19,7 @@ namespace Advertisement.Controllers
         public async Task <IActionResult> GetAd(string Ad)
         {
             List<string> fitsplatform = new List<string>();
+            Ad = Ad.ToLower();
             foreach(var platform in _fileImportData.ImportedData)
             {
                 foreach (var ads in platform.Value) 

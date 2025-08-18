@@ -25,9 +25,9 @@ namespace Advertisement.Controllers
                 while ((textline = await fileReader.ReadLineAsync()) !=null)
                 {
                     string[] splitline = textline.Split(new char[] {':'});
-                    string[] splitpath = splitline[1].Split(new char[] {','});
+                    string[] splitpath = splitline[1].ToLower().Split(new char[] {','});
 
-                    FileImportData.Add(splitline[0], splitpath.ToList());
+                    FileImportData.TryAdd(splitline[0], splitpath.ToList());
                 }
             }
             _fileImportData.ImportedData = FileImportData;
